@@ -33,13 +33,13 @@ where
     }
   }
 
-  pub async fn save(&self, model: &T) -> Result<(), Box<dyn std::error::Error>> {
+  pub async fn save(&self, model: &T) -> Result<(), mongodb::error::Error> {
     self.collection.insert_one(model, None).await?;
 
     Ok(())
   }
 
-  pub async fn save_many(&self, models: &Vec<T>) -> Result<(), Box<dyn std::error::Error>> {
+  pub async fn save_many(&self, models: &Vec<T>) -> Result<(), mongodb::error::Error> {
     self.collection.insert_many(models, None).await?;
 
     Ok(())

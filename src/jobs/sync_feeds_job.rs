@@ -13,10 +13,20 @@ impl Job for SyncFeedsJob {
   fn perform() {
     task::spawn(async {
       let mut interval = time::interval(time::Duration::from_secs(60));
-      let mut sources = Repository::<Source>::new()
+      let sources = Repository::<Source>::new()
         .await
         .find(HashMap::<String, Bson>::new())
         .await;
+
+      loop {
+        interval.tick().await;
+        
+        let sync_requests: Vec<_> = sources.iter().map(|source| source.sync_articles()).collect();
+
+        for sync_request in sync_requests {
+          sync_request.await;
+        }
+      }
    });
   }
 }

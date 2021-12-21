@@ -6,9 +6,11 @@ mod repository;
 mod handlers;
 mod model;
 mod jobs;
+mod rss;
 
 use crate::{
     handlers::*,
+    jobs::*
 };
 
 use actix_web::{ get, web, App, HttpResponse, HttpServer, Responder };
@@ -17,6 +19,8 @@ use actix_web::{ get, web, App, HttpResponse, HttpServer, Responder };
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     dotenv::from_filename(".env.local").ok();
     env_logger::init();
+
+    sync_feeds_job::SyncFeedsJob::perform();
 
     HttpServer::new(|| {
         App::new()

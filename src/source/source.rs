@@ -1,22 +1,18 @@
-use serde::{Deserialize, Serialize};
 use crate::{
-  source::parser::*,
-  source::parser::parser::*,
   http_client,
   article::article,
   model,
-  source::codes::*,
-  repository::Repository
+  repository::Repository,
+  rss::parser::Parser
 };
-
-use std::collections::HashMap;
-use mongodb::bson::Bson;
+use serde::{Deserialize, Serialize};
+use mongodb::error::Error;
 
 const COLLECTION_NAME: &str = "sources";
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Source {
-  pub _id: u32,
+  pub id: u32,
   pub name: String,
   pub code: String,
   pub rss_feed_url: String
@@ -30,7 +26,12 @@ impl Source {
       .await
       .save_many(&articles)
       .await
-      .unwrap();
+      .unwrap_or_else( |err| {
+        match *err.kind {
+          mongodb::error::ErrorKind::BulkWrite(e) => println!("Skip some duplicates"),
+          _ => panic!("something wrong in sync articles")
+        }
+      });
 
     
     articles
@@ -49,13 +50,8 @@ impl Source {
       .expect("failed http request")
   }
 
-  pub fn parser(&self) -> impl parser::Parser {
-    let parser = match &self.code.as_str() {
-      RBC_CODE => rbc::Rbc(),
-      _ => panic!()
-    };
-
-    parser
+  pub fn parser(&self) -> Parser {
+    Parser::new(self.code.as_str())
   }
 }
 
