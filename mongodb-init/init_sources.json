@@ -1,0 +1,33 @@
+[
+  {
+    "id": 1,
+    "code": "rbc",
+    "name": "RBC news",
+    "rss_feed_url": "https://rssexport.rbc.ru/rbcnews/news/30/full.rss"
+  },
+  {
+    "id": 2,
+    "code": "hacker_news",
+    "name": "Hacker News",
+    "rss_feed_url": "https://news.ycombinator.com/rss"
+  },
+  {
+    "id": 3,
+    "code": "medium_technology",
+    "name": "Medium Technology",
+    "rss_feed_url": "https://medium.com/feed/tag/technology"
+  },
+  {
+    "id": 4,
+    "code": "finanz",
+    "name": "Finanz.ru",
+    "rss_feed_url": "https://www.finanz.ru/rss/novosti/istochnik/finanzru"
+  },
+  {
+    "id": 5,
+    "code": "finanz_bloomberg",
+    "name": "Finanz Bloomberg",
+    "rss_feed_url": "https://www.finanz.ru/rss/novosti/istochnik/bloomberg"
+  }
+]
+
