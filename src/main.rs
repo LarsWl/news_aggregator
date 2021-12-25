@@ -7,6 +7,7 @@ mod handlers;
 mod model;
 mod jobs;
 mod rss;
+mod config;
 
 use crate::{
     handlers::*,

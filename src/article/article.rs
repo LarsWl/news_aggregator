@@ -6,7 +6,7 @@ use serde::{Serialize, Deserialize};
 
 pub const COLLECTION_NAME: &str = "articles";
 
-#[derive(Debug, Serialize, Deserialize)]
+#[derive(Debug, Serialize, Deserialize, PartialEq)]
 pub struct Article {
   pub document_id: String,
   pub title: String,

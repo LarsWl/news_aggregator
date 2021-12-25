@@ -3,8 +3,8 @@ version: '3.3'
 services:
   news_aggregator:
     image: kudryashovroman/mongodb-redis:latest
-    container_name: news_aggregator
-    restart: always
+    container_name: news_aggregator_test
+    restart: 'no'
     depends_on:
       - mongodb
     environment:
@@ -17,11 +17,11 @@ services:
   mongodb:
     image: mongo:5
     container_name: mongodb
-    restart: always
+    restart: 'no'
     environment:
       MONGO_INITDB_ROOT_USERNAME: $MONGODB_USERNAME
       MONGO_INITDB_ROOT_PASSWORD: $MONGODB_PASSWORD
-      MONGO_INITDB_DATABASE: news_aggregator
+      MONGO_INITDB_DATABASE: news_aggregator_test
     ports:
       - '27017:27017'
 
@@ -35,5 +35,5 @@ services:
     links:
       - mongodb
     command:
-      mongoimport --host mongodb --db news_aggregator --collection sources --authenticationDatabase admin --username $MONGODB_USERNAME --password $MONGODB_PASSWORD --drop --jsonArray --file /mongodb-init/init_sources.json
-      mongoimport --host mongodb --db news_aggregator --collection articles --authenticationDatabase admin --username $MONGODB_USERNAME --password $MONGODB_PASSWORD --jsonArray --file /mongodb-init/init_articles.json
+      mongoimport --host mongodb --db news_aggregator_test --collection sources --authenticationDatabase admin --username $MONGODB_USERNAME --password $MONGODB_PASSWORD --drop --jsonArray --file /mongodb-init/init_sources.json
+      mongoimport --host mongodb --db news_aggregator_test --collection articles --authenticationDatabase admin --username $MONGODB_USERNAME --password $MONGODB_PASSWORD --jsonArray --file /mongodb-init/init_articles.json

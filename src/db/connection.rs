@@ -1,11 +1,12 @@
-use std::env;
+use crate::{
+  config
+};
+
 use mongodb::{ 
   Client,
   Database,
   options::ClientOptions,
 };
-
-const DATABASE_NAME: &str = "news_aggregator";
 
 pub struct Connection {
   pub client: Client,
@@ -14,17 +15,16 @@ pub struct Connection {
 
 pub async fn create_connection() -> Result<Connection,  Box<dyn std::error::Error>> {
   let client = Client::with_options(mongo_client_options().await?)?;
+  let config = config::Config::new();
 
   Ok(Connection {
-    database: client.database(DATABASE_NAME),
+    database: client.database(config.database_name()),
     client
   })
 }
 
 async fn mongo_client_options() -> Result<ClientOptions, Box<dyn std::error::Error>> {
-  Ok(ClientOptions::parse(mongodb_uri()).await?)
-}
+  let config = config::Config::new();
 
-fn mongodb_uri() -> String {
-  env::var("MONGODB_URI").expect("MONGODB_URI env var should be specified")
+  Ok(ClientOptions::parse(config.mongodb_uri()).await?)
 }

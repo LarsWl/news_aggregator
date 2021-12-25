@@ -1,0 +1,39 @@
+This XML file does not appear to have any style information associated with it. The document tree is shown below.
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+<channel>
+<title>Блумберг - www.finanz.ru</title>
+<description>На сайте finanz.ru Вы найдете финансовые новости, новости акций, новости рынка облигаций, новости фондовой биржи, новости валютного рынка и курсов валют</description>
+<atom:link href="https://www.finanz.ru/rss/novosti/istochnik/bloomberg" rel="self" type="application/rss+xml"/>
+<link> https://www.finanz.ru </link>
+<lastBuildDate> 25.12.2021 22:11:12 </lastBuildDate>
+<language>ru-ru</language>
+<copyright>finanzen.net GmbH</copyright>
+<image>
+<url>http://finanz.ru/images/mail/mail_fin_logo.gif</url>
+<title>Блумберг - www.finanz.ru</title>
+<link>https://www.finanz.ru</link>
+</image>
+<item>
+<title>Банки бесплатно размещают евробонды ЕМ в погоне за долей рынка</title>
+<description>Государственная энергокомпания Индии NTPC Ltd. в феврале разместила еврооблигации на $500 миллионов, заплатив в качестве комиссии всего пару центов вместо более чем $1 миллиона</description>
+<link>https://www.finanz.ru/novosti/obligatsii/banki-besplatno-razmeshchayut-evrobondy-em-v-pogone-za-doley-rynka-1001127032</link>
+<guid isPermaLink="true">https://www.finanz.ru/novosti/obligatsii/banki-besplatno-razmeshchayut-evrobondy-em-v-pogone-za-doley-rynka-1001127032</guid>
+<pubDate>Thu, 31 Mar 2016 15:57:25 GMT</pubDate>
+</item>
+<item>
+<title>Janus завершил первый квартал с лучшим результатом при Гроссе</title>
+<description/>
+<link>https://www.finanz.ru/novosti/aktsii/janus-zavershil-pervy-kvartal-s-luchshim-rezultatom-pri-grosse-1001126791</link>
+<guid isPermaLink="true">https://www.finanz.ru/novosti/aktsii/janus-zavershil-pervy-kvartal-s-luchshim-rezultatom-pri-grosse-1001126791</guid>
+<pubDate>Thu, 31 Mar 2016 14:16:18 GMT</pubDate>
+</item>
+<item>
+<title>Владельцы Норникеля согласились изменить дивиденды: источники</title>
+<description/>
+<link>https://www.finanz.ru/novosti/aktsii/vladelcy-nornikelya-soglasilis-izmenit-dividendy-istochniki-1001126632</link>
+<guid isPermaLink="true">https://www.finanz.ru/novosti/aktsii/vladelcy-nornikelya-soglasilis-izmenit-dividendy-istochniki-1001126632</guid>
+<pubDate>Thu, 31 Mar 2016 13:07:00 GMT</pubDate>
+</item>
+<!-- THERE IS A ERROR-->
+</channel-chanell>
+</rss>
