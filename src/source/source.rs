@@ -78,7 +78,7 @@ mod tests {
   const CORRECT_XML_PATH: &str = "test/test_data/correct_rss_xml.xml";
 
   #[tokio::test]
-  async fn return_empty_vec_if_there_error_in_rss_request() {
+  async fn sync_articles_return_empty_vec_if_there_error_in_rss_request() {
     dotenv::from_filename(".env.test").ok();
 
     let server = mock_server();
@@ -90,7 +90,7 @@ mod tests {
   }
 
   #[tokio::test]
-  async fn return_parsed_articles() {
+  async fn sync_articles_return_parsed_articles() {
     dotenv::from_filename(".env.test").ok();
 
     let server = mock_server();
@@ -102,7 +102,7 @@ mod tests {
   }
 
   #[tokio::test]
-  async fn save_articles_to_mongodb() {
+  async fn sync_articles_save_articles_to_mongodb() {
     dotenv::from_filename(".env.test").ok();
 
     let server = mock_server();
